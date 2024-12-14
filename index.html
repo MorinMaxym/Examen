@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <p>Текст1</p>
+        <p>Текст2</p>
+        <p>Текст3</p>
+        <button>Enter</button>
+        <script>
+                const paragraphs = document.querySelectorAll("p");
+                const button = document.querySelector("button");
+
+                button.addEventListener("click", () => {
+                let maxNumber = -Infinity; 
+                let targetParagraph = null;
+
+                paragraphs.forEach((p) => {
+                    const number = parseInt(p.textContent.replace(/[^\d]/g, ""), 10);
+                    if (!isNaN(number) && number > maxNumber) {
+                    maxNumber = number;
+                    targetParagraph = p;
+                    }
+                });
+
+                paragraphs.forEach((p) => (p.style.border = "none"));
+
+                if (targetParagraph) {
+                    targetParagraph.style.border = "2px solid red";
+                }
+                });
+        </script>
+    </body>
+</html>
